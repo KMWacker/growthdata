@@ -1,0 +1,36 @@
+/* How to produce Figures 1 and Appendix Figure A.1 */
+/* First load WBgrowth_relevance.csv into STATA   */
+/* then run the following STATA code for Figure 1 */
+
+gen pos=12
+replace pos=6 if var1=="dltot"
+replace pos=3 if var1=="durbanpop"
+replace pos=3 if var1=="lcredit"
+replace pos=3 if var1=="dgini"
+replace pos=6 if var1=="infra_index"
+replace pos=9 if var1=="lkg"
+replace pos=9 if var1=="lhc"
+
+gen colorcode_medium = 0
+replace colorcode_medium = 1 if negative_medmodel==. & insignificant_medmodel==.
+replace colorcode_medium = 2 if negative_medmodel==. & insignificant_medmodel==1
+replace colorcode_medium = 3 if negative_medmodel==1 & insignificant_medmodel==.
+replace colorcode_medium = 4 if negative_medmodel==1 & insignificant_medmodel==1
+
+twoway (scatter stdbeta_large dominance_large if colorcode_large==1, mcol(blue) mlabcol(blue) mlab(var1) mlabv(pos) xtitle("goodness to explain variation in income") ytitle("partial correlation with income") legend(off)) ///
+(scatter stdbeta_large dominance_large if colorcode_large==2, mcol(ltblue) mlabcol(ltblue) mlabv(pos) mlab(var1)) ///
+(scatter stdbeta_large dominance_large if colorcode_large==3, mcol(cranberry) mlabcol(cranberry) mlabv(pos) mlab(var1)) ///
+(scatter stdbeta_large dominance_large if colorcode_large==4, mcol(erose) mlabcol(erose) mlabv(pos) mlab(var1))
+
+/ * For Appendix Figure A.1 use the same .csv data but run the following code: */
+
+gen colorcode_large = 0
+replace colorcode_large = 1 if negative_largemodel==. & insignificant_largemodel==.
+replace colorcode_large = 2 if negative_largemodel==. & insignificant_largemodel==1
+replace colorcode_large = 3 if negative_largemodel==1 & insignificant_largemodel==.
+replace colorcode_large = 4 if negative_largemodel==1 & insignificant_largemodel==1
+
+twoway (scatter stdbeta_large dominance_large if colorcode_large==1, mcol(blue) mlabcol(blue) mlab(var1) mlabpos(12) xtitle("goodness to explain variation in income") ytitle("partial correlation with income") legend(off)) ///
+(scatter stdbeta_large dominance_large if colorcode_large==2, mcol(ltblue) mlabcol(ltblue) mlab(var1)) ///
+(scatter stdbeta_large dominance_large if colorcode_large==3, mcol(cranberry) mlabcol(cranberry) mlab(var1)) ///
+(scatter stdbeta_large dominance_large if colorcode_large==4, mcol(erose) mlabcol(erose) mlab(var1))
