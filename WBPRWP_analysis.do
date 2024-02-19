@@ -6,7 +6,7 @@ use growthdata_public.dta    /* can be found at: https://github.com/KMWacker/gro
 /* Create income dummies */
 /*************************/
 
-  gen dum_inc_low = 0
+gen dum_inc_low = 0
 gen dum_inc_mid = 0
 gen dum_inc_high =0
 foreach year of numlist 1/10 {
