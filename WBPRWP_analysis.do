@@ -1,6 +1,6 @@
 /* Do file that performs the analysis presented in the WBPRWP */
 
-use growthdata_public.dta    /* can be found at: https://github.com/KMWacker/growthdata/blob/main/growthdata_public.dta */
+use growthdata_public.dta    /* can be found in this repository; https://github.com/KMWacker/growthdata/blob/1.0_wbprwp/growthdata_public.dta */
 
 /*************************/
 /* Create income dummies */
