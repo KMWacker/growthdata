@@ -8,3 +8,5 @@ This branch of the "growthdata" package contains the STATA codes and data necess
 Since the "dominance" analysis (for economic relevance) takes several hours (possibly > 1 day) to compile, we have separated those commands in the file 2_WBPRWP_dominance.do
 
 Files with the prefix 3 contain all information for the analysis in section 5.2: The file 3b_WBPRWP_relevance.csv contains the dominance statistics estimated in 2_WBPRWP_dominance.do and the standardized beta coefficients (which are calculated in the Excel file 3a_WBPRWP_relevance.xlsx). Also see the code file "3_Figure1" in this repository.
+
+To see which raw data have been used and how they have been transformed, please see: 0_WBPRWP_datacr.do
