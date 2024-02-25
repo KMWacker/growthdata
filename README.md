@@ -1,7 +1,7 @@
 # growthdata
-Panel dataset on correlates of economic growth: 1970-2019
+Panel dataset on correlates of economic growth: 1970-2019 (version 1.0)
 
-This branch of the "growthdata" package contains the STATA codes and data necessary to reproduce our WBPRWP.
+This branch of the "growthdata" repository contains the STATA codes and data necessary to reproduce our WBPRWP.
 
 1_WBPRWP_analysis.do explains what data to load and contains all relevant commands.
 
