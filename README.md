@@ -3,8 +3,8 @@ Panel dataset on correlates of economic growth: 1970-2019
 
 This branch of the "growthdata" package contains the STATA codes and data necessary to reproduce our WBPRWP.
 
-WBPRWP_analysis.do explains what data to load and contains all relevant commands.
+1_WBPRWP_analysis.do explains what data to load and contains all relevant commands.
 
-Since the "dominance" analysis (for economic relevance) takes several hours (possibly > 1 day) to compile, we have separated those commands in the file WBPRWP_dominance.do
+Since the "dominance" analysis (for economic relevance) takes several hours (possibly > 1 day) to compile, we have separated those commands in the file 2_WBPRWP_dominance.do
 
-The WBPRWP_relevance files contain key variables/parameters from the dominance analysis and calculated 'standardized beta coefficients', as well as the STATA code lines (in the .xlsx file) to reproduce the scatter plots depicting economic relevance. Also see the code file "Figure1" in this repository for that purpose.
+Files with the prefix 3 contain all information for the analysis in section 5.2: The file 3b_WBPRWP_relevance.csv contains the dominance statistics estimated in 2_WBPRWP_dominance.do and the standardized beta coefficients (which are calculated in the Excel file 3a_WBPRWP_relevance.xlsx). Also see the code file "3_Figure1" in this repository.
