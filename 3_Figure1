@@ -1,6 +1,7 @@
-/* How to produce Figures 1 and Appendix Figure A.1 */
-/* First load WBgrowth_relevance.csv into STATA   */
-/* then run the following STATA code for Figure 1 */
+/***  How to produce Figures 1 and Appendix Figure A.1 ***/
+/***  First load 3b_WBgrowth_relevance.csv into STATA  ***/
+/*  Note: 3a_WBgrowth_relevance.xlsx calculates std_beta */
+/**** then run the following STATA code for Figure 1 *****/
 
 gen pos=12
 replace pos=6 if var1=="dltot"
