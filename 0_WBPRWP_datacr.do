@@ -3,6 +3,7 @@
 * 2. enter this folder in line 16 of this code
 * 3. in this folder, create a sub-directory: WBgrowthdataset
 * 4. copy "0a_secondaryfiles.zip" into this `WBgrowthdataset' folder (no need to unzip them)
+* 5. If EM-DAT data on natural disasters is desired, it has to be manually downloaded from https://public.emdat.be/ and added to the folder “WBgrowthdataset” (see lines 532 and 538 below). All exhibits can be reproduced without those files.
 Delete this line or run code after this line once above notes have been implemented.
 
 
@@ -528,13 +529,13 @@ duplicates tag iso year, gen(isdupl)
 tab iso if isdupl>=1
 drop if isdupl								/* drops obs w/o iso */
 drop isdupl
-merge 1:1 iso year using "$path\WBgrowthdataset\disasterdb.dta"
+merge 1:1 iso year using "$path\WBgrowthdataset\disasterdb.dta"		/* Note: this file has to be separately downloaded from https://public.emdat.be/ due to copyright restrictions */
 drop if _merge==2
 drop _merge
 
 save "$path\WBgrowthdataset\WBgrowthdata_holder.dta", replace
 
-merge 1:1 iso year using "$path\WBgrowthdataset\total_affected_deaths.dta"
+merge 1:1 iso year using "$path\WBgrowthdataset\total_affected_deaths.dta"	/* Note: this file has to be separately downloaded from https://public.emdat.be/ due to copyright restrictions */
 drop if year < 1962
 
 duplicates tag NAME year, gen(isdupl)	
@@ -709,7 +710,7 @@ save "$path\WBgrowthdataset\WBfiveyeardata_holder.dta", replace
 /* SD of RER */
 /*************/
 
-use C:\Users\KMWacker\Documents\Data\PWT\pwt100.dta, clear
+use "https://www.rug.nl/ggdc/docs/pwt100.dta", clear
 
 encode countrycode, gen(ccode)
 xtset ccode year
