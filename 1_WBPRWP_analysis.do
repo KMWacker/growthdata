@@ -2,51 +2,6 @@
 
 use growthdata_public.dta    /* can be found in this repository; https://github.com/KMWacker/growthdata/blob/1.0_wbprwp/growthdata_public.dta */
 
-/*************************/
-/* Create income dummies */
-/*************************/
-
-gen dum_inc_low = 0
-gen dum_inc_mid = 0
-gen dum_inc_high =0
-foreach year of numlist 1/10 {
-_pctile rgdpe_pc if period==`year', p(33.333, 66.667)
-replace dum_inc_low = 1 if rgdpe_pc <= r(r1) & period==`year'
-replace dum_inc_mid = 1 if rgdpe_pc > r(r1) & rgdpe_pc <= r(r2) & period==`year'
-replace dum_inc_high = 1 if rgdpe_pc > r(r2) & rgdpe_pc!=. & period==`year'
-}
-replace dum_inc_low = . if rgdpe_pc==.
-replace dum_inc_mid = . if rgdpe_pc==.
-replace dum_inc_high =. if rgdpe_pc==.
-gen group_income = .
-replace group_income = 1 if dum_inc_low == 1
-replace group_income = 2 if dum_inc_mid == 1
-replace group_income = 3 if dum_inc_high == 1
-
-/***************************/
-/* Create regional dummies */
-/***************************/
-
-drop NAMES_STD
-kountry country, from(other) geo(un)
-rename GEO region_un
-
-generate dum_region_africa = 0
-generate dum_region_americas = 0
-generate dum_region_asia = 0
-generate dum_region_europe = 0
-replace dum_region_africa = 1 if region_un=="Africa"
-replace dum_region_americas = 1 if region_un=="Americas"
-replace dum_region_asia = 1 if region_un=="Asia" | region_un=="Oceania"
-replace dum_region_europe = 1 if region_un=="Europe"
-gen group_region = .
-replace group_region = 1 if dum_region_africa == 1
-replace group_region = 2 if dum_region_americas == 1
-replace group_region = 3 if dum_region_asia == 1
-replace group_region = 4 if dum_region_europe == 1
-
-keep if period >= 0 & period <11
-
 /*********************/
 /* VARIABLE SETTINGS */
 /*********************/
