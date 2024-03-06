@@ -1,6 +1,6 @@
 * IMPORTANT NOTES!!!!!!!!!
 * 1. create a folder on your system where you want the code to run and the data to be compiled
-* 2. enter this folder in line 16 of this code
+* 2. enter this folder in line 14 of this code
 * 3. in this folder, create a sub-directory: WBgrowthdataset
 * 4. copy "0a_secondaryfiles.zip" into this `WBgrowthdataset' folder (no need to unzip them)
 * 5. If EM-DAT data on natural disasters is desired, it has to be manually downloaded from https://public.emdat.be/ and added to the folder “WBgrowthdataset” (see lines 532 and 538 below). All exhibits can be reproduced without those files.
@@ -11,7 +11,7 @@ Delete this line or run code after this line once above notes have been implemen
 /**********************/
 clear
 set more off
-global path  C:\Users\KMWacker\ownCloud\Documents\Projects\WBgrowth\WBgrowthdataset\reproducibility_package\
+global path  ENTER YOUR DESIRED PATH DIRECTORY HERE!!
 cd "$path\WBgrowthdataset"
 unzipfile 0a_secondaryfiles.zip
 
