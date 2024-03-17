@@ -33,6 +33,7 @@ sum  lrgdp* lhc lkg lrer ltraderesid lcredit linflation_na infra_index dltot lED
 
 *small model, almost all observations 1,507
 xtreg $depvar lagdependent linflation_na lrer ltraderesid infra_index dum_fincrisis sd_temperature dltot lkg sd_growth durbanpop i.period, fe robust
+estimates store est_small
 
 *medium model 
 xtreg $depvar lagdependent linflation_na lrer ltraderesid infra_index dum_fincrisis sd_temperature dltot lkg sd_growth durbanpop lcredit lFDIstock_ipol lEDI_ipol lEDI_ipol_sq actotal i.period, fe robust
@@ -41,6 +42,7 @@ gen smpl_med = 1 if e(sample)
 *large model 
 xtreg $depvar lagdependent linflation_na lrer ltraderesid infra_index dum_fincrisis sd_temperature dltot lkg sd_growth durbanpop lcredit lFDIstock_ipol lEDI_ipol lEDI_ipol_sq actotal lhc dgini i.period, fe robust
 gen smpl_large = 1 if e(sample)
+estimates store est_large
 
 *extended model 
 xtreg $depvar lagdependent linflation_na lrer ltraderesid infra_index dum_fincrisis sd_temperature dltot lkg sd_growth durbanpop lcredit lFDIstock_ipol lEDI_ipol lEDI_ipol_sq actotal lhc dgini emprate agri_valadded remittances i.period, fe robust
