@@ -8,7 +8,7 @@
 insheet using "3b_WBgrowth_relevance.csv" /* available in repository; may need to adjust path */
 
 * NOTE: if STATA produces an error like: "v1 not found" below, you may have to:
-* rename v1 v1
+* rename var1 v1
 gen pos=12
 replace pos=6 if v1=="dltot"
 replace pos=3 if v1=="durbanpop"
