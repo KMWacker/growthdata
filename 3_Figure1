@@ -5,7 +5,7 @@
 /*********************************************************/
 
 /***  First, load 3b_WBgrowth_relevance.csv into STATA  ***/
-insheet using "3b_WBgrowth_relevance.csv" /* may need to adjust path */
+insheet using "3b_WBgrowth_relevance.csv" /* available in repository; may need to adjust path */
 
 * NOTE: if STATA produces an error like: "v1 not found" below, you may have to:
 * rename v1 v1
